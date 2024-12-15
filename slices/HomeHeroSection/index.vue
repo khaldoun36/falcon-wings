@@ -28,10 +28,12 @@
       class="relative z-10 flex flex-col items-center justify-center gap-8 max-w-[100ch] mx-auto px-4"
     >
       <div class="flex flex-col items-center justify-center gap-4 text-center">
-        <h1 class="text-3xl md:text-4xl lg:text-6xl text-balance">
+        <h1
+          class="text-3xl md:text-4xl lg:text-6xl text-balance text-neutral-100"
+        >
           {{ slice.primary.hero_title }}
         </h1>
-        <p class="text-base md:text-lg text-balance">
+        <p class="text-base md:text-lg text-balance text-neutral-400">
           {{ slice.primary.hero_subtitle }}
         </p>
       </div>
