@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+#__nuxt,
+#__layout {
+  --color-background: theme("colors.neutral.100");
+
+  background-color: var(--color-background);
+}

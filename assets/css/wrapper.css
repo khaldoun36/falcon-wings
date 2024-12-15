@@ -1,0 +1,30 @@
+.content-grid {
+  --padding: theme("spacing.4");
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start] var(--padding)
+    [content-start] 1fr [content-end] var(--padding) [full-width-end];
+}
+
+@media (width >= 48rem) {
+  .content-grid {
+    --padding: theme("spacing.8");
+  }
+}
+
+@media (width >= 80rem) {
+  .content-grid {
+    grid-template-columns:
+      [full-width-start]1fr var(--padding)
+      [content-start] 76rem [content-end] var(--padding) 1fr[full-width-end];
+  }
+}
+
+.content-grid > * {
+  grid-column: content;
+}
+
+.full-width {
+  grid-column: full-width;
+}
