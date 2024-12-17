@@ -8,15 +8,15 @@
 
     <!-- <PrimaryHeader /> -->
 
-    <slot></slot>
+    <slot />
   </div>
 </template>
 <script setup>
-  import PrimaryHeader from "~/components/base/PrimaryHeader.vue";
+import PrimaryHeader from "~/components/base/PrimaryHeader.vue";
 
-  import { useSettings } from "~/composables/useSettings";
+import { useSettings } from "~/composables/useSettings";
 
-  const { settings } = useSettings();
+const { settings } = useSettings();
 </script>
 
 <style scoped></style>

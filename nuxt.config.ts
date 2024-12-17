@@ -32,7 +32,14 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxt/icon",
     "@vueuse/nuxt",
+    "@nuxt/image",
   ],
+
+  image: {
+    provider: "prismic",
+    format: ["avif", "webp"],
+    domains: ["images.prismic.io"],
+  },
 
   prismic: {
     endpoint: apiEndpoint || repositoryName,
