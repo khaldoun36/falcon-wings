@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
 import AboutUsCard from "@/components/base/AboutUsCard.vue";
+import Map from "@/components/base/Map.vue";
 // The array passed to `getSliceComponentProps` is purely optional.
 // Consider it as a visual hint for you when templating your slice.
 defineProps(
@@ -66,5 +67,8 @@ defineProps(
         </div>
       </div>
     </div>
+  </section>
+  <section class="mt-20 md:mt-24 lg:mt-32">
+    <Map />
   </section>
 </template>
