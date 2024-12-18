@@ -4,8 +4,7 @@
   >
     <Icon
       :name="icon"
-      size="240"
-      class="absolute -right-2 -top-2 mb-2 text-neutral-400/10"
+      class="absolute -right-2 -top-2 mb-2 size-48 text-neutral-400/10 md:size-60"
     />
 
     <h3
