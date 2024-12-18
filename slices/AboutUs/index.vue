@@ -28,20 +28,22 @@ defineProps(
           v-for="item in slice.primary.adventure_learning"
           :key="String(item.title)"
           :item="item"
-          class="border border-white/10 bg-neutral-900 md:col-span-2"
+          icon="mdi:compass-outline"
+          class="border border-white/10 bg-neutral-900/90 md:col-span-2"
         />
         <NuxtImg
           :src="String(slice.primary.primary_image.url)"
           :alt="String(slice.primary.primary_image.alt)"
           :width="slice.primary.primary_image.dimensions?.width"
           :height="slice.primary.primary_image.dimensions?.height"
-          class="block h-72 w-full overflow-clip rounded-lg border border-white/10 object-cover lg:min-h-full"
+          class="block h-80 w-full overflow-clip rounded-lg border border-white/10 object-cover lg:min-h-full"
         />
 
         <AboutUsCard
           v-for="item in slice.primary.vision"
           :key="String(item.title)"
           :item="item"
+          icon="heroicons:sparkles"
           class="border border-white/10 bg-yellow-700/80"
         />
         <NuxtImg
@@ -49,12 +51,13 @@ defineProps(
           :alt="String(slice.primary.secondary_image.alt)"
           :width="slice.primary.secondary_image.dimensions?.width"
           :height="slice.primary.secondary_image.dimensions?.height"
-          class="block h-72 w-full overflow-clip rounded-lg border border-white/10 object-cover lg:min-h-full"
+          class="block h-80 w-full overflow-clip rounded-lg border border-white/10 object-cover lg:min-h-full"
         />
         <AboutUsCard
           v-for="item in slice.primary.mission"
           :key="String(item.title)"
           :item="item"
+          icon="heroicons:rocket-launch"
           class="border border-white/10 bg-amber-800/80"
         />
       </div>
