@@ -1,0 +1,111 @@
+{
+  "id": "about_us",
+  "type": "SharedSlice",
+  "name": "AboutUs",
+  "description": "AboutUs",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "primary_section_title": {
+          "type": "Text",
+          "config": {
+            "label": "Primary Section Title",
+            "placeholder": ""
+          }
+        },
+        "primary_image": {
+          "type": "Image",
+          "config": {
+            "label": "Primary Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "secondary_image": {
+          "type": "Image",
+          "config": {
+            "label": "Secondary Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "adventure_learning": {
+          "type": "Group",
+          "config": {
+            "label": "Adventure Learning",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "subtitle": {
+                "type": "Text",
+                "config": {
+                  "label": "Subtitle",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "vision": {
+          "type": "Group",
+          "config": {
+            "label": "Vision",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "subtitle": {
+                "type": "Text",
+                "config": {
+                  "label": "Subtitle",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "mission": {
+          "type": "Group",
+          "config": {
+            "label": "Mission",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "subtitle": {
+                "type": "Text",
+                "config": {
+                  "label": "Subtitle",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

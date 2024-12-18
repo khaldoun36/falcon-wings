@@ -15,7 +15,7 @@ defineProps(
 </script>
 
 <template>
-  <section class="mt-20 bg-transparent md:mt-24 lg:mt-32">
+  <section class="my-20 bg-transparent md:my-24 lg:my-32">
     <h2 class="text-balance text-center text-2xl md:text-3xl lg:text-5xl">
       {{ slice.primary.section_title }}
     </h2>

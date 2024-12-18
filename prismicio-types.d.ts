@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | AboutUsSlice
   | ProgramsSlice
   | HomeHeroSectionSlice
   | RichTextSlice;
@@ -131,6 +132,178 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument | SettingsDocument;
 
 /**
+ * Item in *AboutUs → Default → Primary → Adventure Learning*
+ */
+export interface AboutUsSliceDefaultPrimaryAdventureLearningItem {
+  /**
+   * Title field in *AboutUs → Default → Primary → Adventure Learning*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.adventure_learning[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *AboutUs → Default → Primary → Adventure Learning*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.adventure_learning[].subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+}
+
+/**
+ * Item in *AboutUs → Default → Primary → Vision*
+ */
+export interface AboutUsSliceDefaultPrimaryVisionItem {
+  /**
+   * Title field in *AboutUs → Default → Primary → Vision*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.vision[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *AboutUs → Default → Primary → Vision*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.vision[].subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+}
+
+/**
+ * Item in *AboutUs → Default → Primary → Mission*
+ */
+export interface AboutUsSliceDefaultPrimaryMissionItem {
+  /**
+   * Title field in *AboutUs → Default → Primary → Mission*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.mission[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *AboutUs → Default → Primary → Mission*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.mission[].subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *AboutUs → Default → Primary*
+ */
+export interface AboutUsSliceDefaultPrimary {
+  /**
+   * Primary Section Title field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.primary_section_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  primary_section_title: prismic.KeyTextField;
+
+  /**
+   * Primary Image field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.primary_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  primary_image: prismic.ImageField<never>;
+
+  /**
+   * Secondary Image field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.secondary_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  secondary_image: prismic.ImageField<never>;
+
+  /**
+   * Adventure Learning field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.adventure_learning[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  adventure_learning: prismic.GroupField<
+    Simplify<AboutUsSliceDefaultPrimaryAdventureLearningItem>
+  >;
+
+  /**
+   * Vision field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.vision[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  vision: prismic.GroupField<Simplify<AboutUsSliceDefaultPrimaryVisionItem>>;
+
+  /**
+   * Mission field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.mission[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  mission: prismic.GroupField<Simplify<AboutUsSliceDefaultPrimaryMissionItem>>;
+}
+
+/**
+ * Default variation for AboutUs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutUsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutUsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AboutUs*
+ */
+type AboutUsSliceVariation = AboutUsSliceDefault;
+
+/**
+ * AboutUs Shared Slice
+ *
+ * - **API ID**: `about_us`
+ * - **Description**: AboutUs
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutUsSlice = prismic.SharedSlice<
+  "about_us",
+  AboutUsSliceVariation
+>;
+
+/**
  * Item in *HomeHeroSection → Default → Primary → Hero Cal to Action*
  */
 export interface HomeHeroSectionSliceDefaultPrimaryHeroCalToActionItem {
@@ -236,16 +409,6 @@ export interface ProgramsSliceDefaultPrimaryProgramsItem {
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   is_program_active: prismic.BooleanField;
-
-  /**
-   * Background Image field in *Programs → Default → Primary → Programs*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: programs.default.primary.programs[].background_image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  background_image: prismic.ImageField<never>;
 
   /**
    * Badge field in *Programs → Default → Primary → Programs*
@@ -418,6 +581,13 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
+      AboutUsSlice,
+      AboutUsSliceDefaultPrimaryAdventureLearningItem,
+      AboutUsSliceDefaultPrimaryVisionItem,
+      AboutUsSliceDefaultPrimaryMissionItem,
+      AboutUsSliceDefaultPrimary,
+      AboutUsSliceVariation,
+      AboutUsSliceDefault,
       HomeHeroSectionSlice,
       HomeHeroSectionSliceDefaultPrimaryHeroCalToActionItem,
       HomeHeroSectionSliceDefaultPrimary,

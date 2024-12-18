@@ -34,14 +34,6 @@
                   "default_value": false
                 }
               },
-              "background_image": {
-                "type": "Image",
-                "config": {
-                  "label": "Background Image",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              },
               "badge": {
                 "type": "Image",
                 "config": {

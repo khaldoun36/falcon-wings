@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    class="group block cursor-pointer rounded-lg border border-black/10 hover:shadow-lg"
+    class="group block cursor-pointer rounded-lg border border-black/10 transition-all hover:shadow-lg"
   >
     <article class="relative isolate p-8">
       <NuxtImg
