@@ -5,10 +5,10 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | ContactUsSlice
   | AboutUsSlice
   | ProgramsSlice
-  | HomeHeroSectionSlice
-  | RichTextSlice;
+  | HomeHeroSectionSlice;
 
 /**
  * Content for Page documents
@@ -304,6 +304,61 @@ export type AboutUsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ContactUs → Default → Primary*
+ */
+export interface ContactUsSliceDefaultPrimary {
+  /**
+   * Title field in *ContactUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *ContactUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.default.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ContactUs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactUsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactUsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactUs*
+ */
+type ContactUsSliceVariation = ContactUsSliceDefault;
+
+/**
+ * ContactUs Shared Slice
+ *
+ * - **API ID**: `contact_us`
+ * - **Description**: ContactUs
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactUsSlice = prismic.SharedSlice<
+  "contact_us",
+  ContactUsSliceVariation
+>;
+
+/**
  * Item in *HomeHeroSection → Default → Primary → Hero Cal to Action*
  */
 export interface HomeHeroSectionSliceDefaultPrimaryHeroCalToActionItem {
@@ -588,6 +643,10 @@ declare module "@prismicio/client" {
       AboutUsSliceDefaultPrimary,
       AboutUsSliceVariation,
       AboutUsSliceDefault,
+      ContactUsSlice,
+      ContactUsSliceDefaultPrimary,
+      ContactUsSliceVariation,
+      ContactUsSliceDefault,
       HomeHeroSectionSlice,
       HomeHeroSectionSliceDefaultPrimaryHeroCalToActionItem,
       HomeHeroSectionSliceDefaultPrimary,

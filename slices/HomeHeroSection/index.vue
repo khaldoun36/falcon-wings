@@ -19,7 +19,7 @@ defineProps(
   >
     <NuxtImg
       :src="String(slice.primary.hero_image.url)"
-      class="full-width absolute inset-0 min-h-full min-w-full object-cover brightness-[50%]"
+      class="full-width absolute inset-0 min-h-full min-w-full object-cover brightness-[40%]"
       :alt="String(slice.primary.hero_image.alt)"
       :width="slice.primary.hero_image.dimensions?.width"
       :height="slice.primary.hero_image.dimensions?.height"
@@ -36,9 +36,7 @@ defineProps(
         >
           {{ slice.primary.hero_title }}
         </h1>
-        <p
-          class="max-w-[55ch] text-balance text-base !text-neutral-300 md:text-lg lg:text-xl"
-        >
+        <p class="text-balance text-base !text-neutral-300/80 md:text-lg">
           {{ slice.primary.hero_subtitle }}
         </p>
       </div>
