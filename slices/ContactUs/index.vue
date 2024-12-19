@@ -46,7 +46,7 @@ defineProps(
           <div
             class="flex items-center justify-center rounded border border-white/10 p-2"
           >
-            <Icon name="heroicons:phone-solid" class="size-5" />
+            <Icon name="heroicons:phone" class="size-5" />
           </div>
           <div class="mt-1 flex flex-col gap-1">
             <p class="text-xl">Call us</p>

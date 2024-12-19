@@ -68,7 +68,7 @@ defineProps(
       </div>
     </div>
   </section>
-  <section class="mt-20 md:mt-24 lg:mt-32">
+  <!-- <section class="mt-20 md:mt-24 lg:mt-32">
     <Map />
-  </section>
+  </section> -->
 </template>
