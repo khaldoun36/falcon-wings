@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    class="group block cursor-pointer rounded-lg border border-black/10 transition-all hover:shadow-lg"
+    class="group block cursor-pointer rounded-lg border border-black/10 bg-white shadow-sm transition-all hover:shadow-lg"
   >
     <article class="relative isolate p-8">
       <NuxtImg
@@ -12,7 +12,7 @@
         :class="{ 'blur-md': !passedItems.is_program_active }"
       />
 
-      <h3 class="mt-16 text-center text-xl capitalize md:text-xl lg:text-3xl">
+      <h3 class="mt-16 text-center text-xl capitalize lg:text-3xl">
         {{ passedItems.program_title }}
       </h3>
       <p class="mt-6 text-center text-base md:text-lg">

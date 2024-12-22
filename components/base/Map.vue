@@ -118,7 +118,7 @@
 </template>
 
 <script setup>
-const activeCity = ref("AEFU");
+const activeCity = ref("AEDU");
 const cityName = ref("Fujayrah");
 const myClick = (event) => {
   console.log(event.target.id);

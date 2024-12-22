@@ -1,0 +1,57 @@
+{
+  "id": "identity_section",
+  "type": "SharedSlice",
+  "name": "IdentitySection",
+  "description": "IdentitySection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "main_section_title": {
+          "type": "Text",
+          "config": {
+            "label": "Main Section Title",
+            "placeholder": ""
+          }
+        },
+        "framework_points": {
+          "type": "Group",
+          "config": {
+            "label": "Framework points",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "subtitle": {
+                "type": "Text",
+                "config": {
+                  "label": "Subtitle",
+                  "placeholder": ""
+                }
+              },
+              "background_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Background Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

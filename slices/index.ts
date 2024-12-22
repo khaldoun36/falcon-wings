@@ -9,6 +9,9 @@ export const components = defineSliceZoneComponents({
   home_hero_section: defineAsyncComponent(
     () => import("./HomeHeroSection/index.vue"),
   ),
+  identity_section: defineAsyncComponent(
+    () => import("./IdentitySection/index.vue"),
+  ),
   programs: defineAsyncComponent(() => import("./Programs/index.vue")),
   rich_text: defineAsyncComponent(() => import("./RichText/index.vue")),
 });

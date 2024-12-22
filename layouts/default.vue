@@ -6,13 +6,15 @@
       <Meta property="og:image" :content="settings.data.og_image.url" />
     </Head>
 
-    <!-- <PrimaryHeader /> -->
+    <PrimaryHeader />
 
     <slot />
+    <PrimaryFooter />
   </div>
 </template>
 <script setup>
 import PrimaryHeader from "~/components/base/PrimaryHeader.vue";
+import PrimaryFooter from "~/components/base/PrimaryFooter.vue";
 
 import { useSettings } from "~/composables/useSettings";
 

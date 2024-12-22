@@ -15,7 +15,7 @@ defineProps(
 
 <template>
   <section
-    class="mt-20 grid items-start gap-8 rounded-lg bg-primary-950 p-8 md:mt-28 lg:mt-32 lg:grid-cols-[1fr_1.25fr] lg:gap-16 lg:p-16"
+    class="my-20 grid items-start gap-8 rounded-lg bg-primary-950 p-8 md:my-28 lg:my-32 lg:grid-cols-[1fr_1.25fr] lg:gap-16 lg:p-16"
   >
     <div>
       <h3 class="text-xl text-neutral-100 md:text-2xl lg:text-3xl">

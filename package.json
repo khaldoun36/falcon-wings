@@ -22,7 +22,7 @@
     "@nuxtjs/prismic": "^3.4.6",
     "@nuxtjs/tailwindcss": "6.12.2",
     "@slicemachine/adapter-nuxt": "^0.3.60",
-    "@vueuse/nuxt": "12.0.0",
+    "@vueuse/nuxt": "12.1.0",
     "concurrently": "^9.0.1",
     "eslint": "^8.57.1",
     "nuxt": "^3.14.1592",

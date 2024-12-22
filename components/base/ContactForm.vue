@@ -1,33 +1,73 @@
 <template>
   <form @submit.prevent="submitForm" class="flex flex-col gap-4">
     <div class="flex flex-col gap-2">
-      <Label for="name">Name</Label>
-      <input type="text" name="name" v-model="form.name" />
+      <label for="name">Name <span class="text-red-500">*</span></label>
+      <input type="text" name="name" id="name" v-model="form.name" required />
     </div>
     <div class="flex flex-col gap-2">
-      <Label for="email">Email</Label>
-      <input type="email" name="email" v-model="form.email" />
+      <label for="email">Email <span class="text-red-500">*</span></label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        v-model="form.email"
+        required
+      />
     </div>
     <div class="flex flex-col gap-2">
-      <Label for="school">School/Organization</Label>
-      <input type="text" name="school" v-model="form.school" />
+      <label for="phone">Phone Number</label>
+      <input type="tel" name="phone" id="phone" v-model="form.phone" />
     </div>
     <div class="flex flex-col gap-2">
-      <Label for="message">Message</Label>
-      <textarea name="message" v-model="form.message"></textarea>
+      <label for="role">Role <span class="text-red-500">*</span></label>
+      <select name="role" id="role" v-model="form.role" required>
+        <option value="">Select your role</option>
+        <option value="student">Student</option>
+        <option value="school_director">School Director</option>
+      </select>
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="school"
+        >School/Organization <span class="text-red-500">*</span></label
+      >
+      <input
+        type="text"
+        name="school"
+        id="school"
+        v-model="form.school"
+        required
+      />
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="message">Message <span class="text-red-500">*</span></label>
+      <textarea
+        name="message"
+        id="message"
+        v-model="form.message"
+        required
+      ></textarea>
     </div>
     <button type="submit" class="button mt-4 min-w-full">Send Message</button>
+    <p
+      v-if="result"
+      :class="{
+        'text-green-500': status === 'success',
+        'text-red-500': status === 'error',
+      }"
+    >
+      {{ result }}
+    </p>
   </form>
 </template>
 
 <script setup>
-import { ref } from "vue";
-
 const form = ref({
-  access_key: "YOUR_ACCESS_KEY_HERE",
+  access_key: "YOUR_ACCESS_KEY_HERE", // Security issue: API key should be in env variables
   subject: "New Submission from Web3Forms",
   name: "",
   email: "",
+  phone: "",
+  role: "",
   message: "",
   school: "",
 });
@@ -44,27 +84,26 @@ const submitForm = async () => {
       body: form.value,
     });
 
-    console.log(response); // You can remove this line if you don't need it
-
     result.value = response.message;
+    status.value = response.success ? "success" : "error";
 
-    if (response.status === 200) {
-      status.value = "success";
-    } else {
-      console.log(response); // Log for debugging, can be removed
-      status.value = "error";
+    if (response.success) {
+      form.value = {
+        access_key: form.value.access_key,
+        subject: form.value.subject,
+        name: "",
+        email: "",
+        phone: "",
+        role: "",
+        message: "",
+        school: "",
+      };
     }
   } catch (error) {
-    console.log(error); // Log for debugging, can be removed
+    console.error(error);
     status.value = "error";
     result.value = "Something went wrong!";
   } finally {
-    // Reset form after submission
-    form.value.name = "";
-    form.value.email = "";
-    form.value.message = "";
-    form.value.school = "";
-    // Clear result and status after 5 seconds
     setTimeout(() => {
       result.value = "";
       status.value = "";
@@ -80,12 +119,17 @@ form label {
 }
 
 form input,
-form textarea {
+form textarea,
+form select {
   border-radius: theme("borderRadius.lg");
   border: 1px solid theme("colors.white/10%");
   padding: theme("spacing.2");
   background-color: theme("colors.neutral.600/40%");
   color: theme("colors.neutral.100");
+}
+
+form input {
+  padding-inline: theme("spacing.4");
 }
 
 @media (width >= 768px) {

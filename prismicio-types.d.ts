@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | IdentitySectionSlice
   | ContactUsSlice
   | AboutUsSlice
   | ProgramsSlice
@@ -451,6 +452,98 @@ export type HomeHeroSectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *IdentitySection → Default → Primary → Framework points*
+ */
+export interface IdentitySectionSliceDefaultPrimaryFrameworkPointsItem {
+  /**
+   * Title field in *IdentitySection → Default → Primary → Framework points*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: identity_section.default.primary.framework_points[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *IdentitySection → Default → Primary → Framework points*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: identity_section.default.primary.framework_points[].subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Background Image field in *IdentitySection → Default → Primary → Framework points*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: identity_section.default.primary.framework_points[].background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *IdentitySection → Default → Primary*
+ */
+export interface IdentitySectionSliceDefaultPrimary {
+  /**
+   * Main Section Title field in *IdentitySection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: identity_section.default.primary.main_section_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_section_title: prismic.KeyTextField;
+
+  /**
+   * Framework points field in *IdentitySection → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: identity_section.default.primary.framework_points[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  framework_points: prismic.GroupField<
+    Simplify<IdentitySectionSliceDefaultPrimaryFrameworkPointsItem>
+  >;
+}
+
+/**
+ * Default variation for IdentitySection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IdentitySectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<IdentitySectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *IdentitySection*
+ */
+type IdentitySectionSliceVariation = IdentitySectionSliceDefault;
+
+/**
+ * IdentitySection Shared Slice
+ *
+ * - **API ID**: `identity_section`
+ * - **Description**: IdentitySection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IdentitySectionSlice = prismic.SharedSlice<
+  "identity_section",
+  IdentitySectionSliceVariation
+>;
+
+/**
  * Item in *Programs → Default → Primary → Programs*
  */
 export interface ProgramsSliceDefaultPrimaryProgramsItem {
@@ -652,6 +745,11 @@ declare module "@prismicio/client" {
       HomeHeroSectionSliceDefaultPrimary,
       HomeHeroSectionSliceVariation,
       HomeHeroSectionSliceDefault,
+      IdentitySectionSlice,
+      IdentitySectionSliceDefaultPrimaryFrameworkPointsItem,
+      IdentitySectionSliceDefaultPrimary,
+      IdentitySectionSliceVariation,
+      IdentitySectionSliceDefault,
       ProgramsSlice,
       ProgramsSliceDefaultPrimaryProgramsItem,
       ProgramsSliceDefaultPrimary,

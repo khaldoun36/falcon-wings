@@ -33,6 +33,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@vueuse/nuxt",
     "@nuxt/image",
+    "@vueuse/nuxt",
   ],
 
   image: {
