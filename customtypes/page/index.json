@@ -27,6 +27,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "questions_and_answers": {
+              "type": "SharedSlice"
+            },
             "identity_section": {
               "type": "SharedSlice"
             },

@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | QuestionsAndAnswersSlice
   | IdentitySectionSlice
   | ContactUsSlice
   | AboutUsSlice
@@ -657,6 +658,88 @@ export type ProgramsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *QuestionsAndAnswers → Default → Primary → Questions and answers*
+ */
+export interface QuestionsAndAnswersSliceDefaultPrimaryQuestionsAndAnswersItem {
+  /**
+   * Question field in *QuestionsAndAnswers → Default → Primary → Questions and answers*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: questions_and_answers.default.primary.questions_and_answers[].question
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  question: prismic.KeyTextField;
+
+  /**
+   * Answer field in *QuestionsAndAnswers → Default → Primary → Questions and answers*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: questions_and_answers.default.primary.questions_and_answers[].answer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  answer: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *QuestionsAndAnswers → Default → Primary*
+ */
+export interface QuestionsAndAnswersSliceDefaultPrimary {
+  /**
+   * SectionTitle field in *QuestionsAndAnswers → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: questions_and_answers.default.primary.sectiontitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sectiontitle: prismic.KeyTextField;
+
+  /**
+   * Questions and answers field in *QuestionsAndAnswers → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: questions_and_answers.default.primary.questions_and_answers[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  questions_and_answers: prismic.GroupField<
+    Simplify<QuestionsAndAnswersSliceDefaultPrimaryQuestionsAndAnswersItem>
+  >;
+}
+
+/**
+ * Default variation for QuestionsAndAnswers Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuestionsAndAnswersSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<QuestionsAndAnswersSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *QuestionsAndAnswers*
+ */
+type QuestionsAndAnswersSliceVariation = QuestionsAndAnswersSliceDefault;
+
+/**
+ * QuestionsAndAnswers Shared Slice
+ *
+ * - **API ID**: `questions_and_answers`
+ * - **Description**: QuestionsAndAnswers
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuestionsAndAnswersSlice = prismic.SharedSlice<
+  "questions_and_answers",
+  QuestionsAndAnswersSliceVariation
+>;
+
+/**
  * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -755,6 +838,11 @@ declare module "@prismicio/client" {
       ProgramsSliceDefaultPrimary,
       ProgramsSliceVariation,
       ProgramsSliceDefault,
+      QuestionsAndAnswersSlice,
+      QuestionsAndAnswersSliceDefaultPrimaryQuestionsAndAnswersItem,
+      QuestionsAndAnswersSliceDefaultPrimary,
+      QuestionsAndAnswersSliceVariation,
+      QuestionsAndAnswersSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

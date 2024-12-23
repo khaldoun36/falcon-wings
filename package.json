@@ -29,5 +29,8 @@
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "slice-machine-ui": "^2.11.0"
+  },
+  "dependencies": {
+    "radix-vue": "^1.9.11"
   }
 }

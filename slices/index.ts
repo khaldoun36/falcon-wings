@@ -13,5 +13,8 @@ export const components = defineSliceZoneComponents({
     () => import("./IdentitySection/index.vue"),
   ),
   programs: defineAsyncComponent(() => import("./Programs/index.vue")),
+  questions_and_answers: defineAsyncComponent(
+    () => import("./QuestionsAndAnswers/index.vue"),
+  ),
   rich_text: defineAsyncComponent(() => import("./RichText/index.vue")),
 });

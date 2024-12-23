@@ -1,0 +1,49 @@
+{
+  "id": "questions_and_answers",
+  "type": "SharedSlice",
+  "name": "QuestionsAndAnswers",
+  "description": "QuestionsAndAnswers",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "sectiontitle": {
+          "type": "Text",
+          "config": {
+            "label": "SectionTitle",
+            "placeholder": ""
+          }
+        },
+        "questions_and_answers": {
+          "type": "Group",
+          "config": {
+            "label": "Questions and answers",
+            "repeat": true,
+            "fields": {
+              "question": {
+                "type": "Text",
+                "config": {
+                  "label": "Question",
+                  "placeholder": ""
+                }
+              },
+              "answer": {
+                "type": "Text",
+                "config": {
+                  "label": "Answer",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

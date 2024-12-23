@@ -5,7 +5,9 @@
 body,
 #__nuxt,
 #__layout {
-  --color-background: theme("colors.neutral.100");
+  --color-background: theme("colors.white");
 
-  background-color: var(--color-background);
+  background:
+    url(assets/visiual/noise.png) repeat,
+    var(--color-background);
 }
