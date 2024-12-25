@@ -12,7 +12,10 @@ export const components = defineSliceZoneComponents({
   identity_section: defineAsyncComponent(
     () => import("./IdentitySection/index.vue"),
   ),
-  programs: defineAsyncComponent(() => import("./Programs/index.vue")),
+  program_details: defineAsyncComponent(
+    () => import("./ProgramDetails/index.vue"),
+  ),
+  program_page: defineAsyncComponent(() => import("./ProgramPage/index.vue")),
   questions_and_answers: defineAsyncComponent(
     () => import("./QuestionsAndAnswers/index.vue"),
   ),

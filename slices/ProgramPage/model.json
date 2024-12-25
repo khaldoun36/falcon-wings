@@ -1,0 +1,30 @@
+{
+  "id": "program_page",
+  "type": "SharedSlice",
+  "name": "ProgramPage",
+  "description": "ProgramPage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "program_details": {
+          "type": "Link",
+          "config": {
+            "label": "Program Details",
+            "select": "document",
+            "repeat": false,
+            "customtypes": [
+              "program_details"
+            ]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

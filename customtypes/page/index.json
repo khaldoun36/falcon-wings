@@ -27,6 +27,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "program_details": {
+              "type": "SharedSlice"
+            },
             "questions_and_answers": {
               "type": "SharedSlice"
             },
@@ -37,9 +40,6 @@
               "type": "SharedSlice"
             },
             "about_us": {
-              "type": "SharedSlice"
-            },
-            "programs": {
               "type": "SharedSlice"
             },
             "home_hero_section": {

@@ -6,8 +6,8 @@
   <header
     class="full-width content-grid fixed left-0 right-0 top-0 z-50 mx-auto rounded-none border border-white/0 bg-primary-950/0 py-2 backdrop-blur-none transition-all duration-[250ms]"
     :class="{
-      'active !left-[1%] !right-[1%] !top-[1%] !rounded-lg !border-white/10':
-        isScrolled,
+      'active !left-[8px] !right-[8px] !top-[8px] !rounded-lg !border-white/10':
+        isScrolled || useRoute().path !== '/',
     }"
   >
     <div class="flex items-center justify-between">

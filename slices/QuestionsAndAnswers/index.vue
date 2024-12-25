@@ -67,7 +67,7 @@ const updatedFAQ = computed(() => {
   </section>
 </template>
 
-<style scoped>
+<style>
 .expand-collapse-icon {
   font-size: 20px;
   width: 1em;

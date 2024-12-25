@@ -1,0 +1,55 @@
+{
+  "id": "program_details",
+  "type": "SharedSlice",
+  "name": "ProgramDetails",
+  "description": "ProgramDetails",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "section_title": {
+          "type": "Text",
+          "config": {
+            "label": "Section Title",
+            "placeholder": ""
+          }
+        },
+        "programs_details": {
+          "type": "Group",
+          "config": {
+            "label": "Programs Details",
+            "repeat": true,
+            "fields": {
+              "a_single_program_details": {
+                "type": "Link",
+                "config": {
+                  "label": "A Single Program Details",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "program_details"
+                  ]
+                }
+              },
+              "is_program_active": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Is Program Active",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

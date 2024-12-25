@@ -5,11 +5,11 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | ProgramDetailsSlice
   | QuestionsAndAnswersSlice
   | IdentitySectionSlice
   | ContactUsSlice
   | AboutUsSlice
-  | ProgramsSlice
   | HomeHeroSectionSlice;
 
 /**
@@ -50,6 +50,191 @@ interface PageDocumentData {
  */
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+
+/**
+ * Item in *Program Details → About the Program*
+ */
+export interface ProgramDetailsDocumentDataAboutTheProgramItem {
+  /**
+   * Title field in *Program Details → About the Program*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_details.about_the_program[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *Program Details → About the Program*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_details.about_the_program[].subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Program Details → Program Pictures*
+ */
+export interface ProgramDetailsDocumentDataProgramPicturesItem {
+  /**
+   * Image field in *Program Details → Program Pictures*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_details.program_pictures[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Content for Program Details documents
+ */
+interface ProgramDetailsDocumentData {
+  /**
+   * Program Badge field in *Program Details*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_details.program_badge
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  program_badge: prismic.ImageField<never>;
+
+  /**
+   * Program Title field in *Program Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_details.program_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  program_title: prismic.KeyTextField;
+
+  /**
+   * Program Description field in *Program Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_details.program_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  program_description: prismic.KeyTextField;
+
+  /**
+   * About the Program field in *Program Details*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_details.about_the_program[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  about_the_program: prismic.GroupField<
+    Simplify<ProgramDetailsDocumentDataAboutTheProgramItem>
+  >;
+
+  /**
+   * Program Pictures field in *Program Details*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_details.program_pictures[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  program_pictures: prismic.GroupField<
+    Simplify<ProgramDetailsDocumentDataProgramPicturesItem>
+  >;
+}
+
+/**
+ * Program Details document from Prismic
+ *
+ * - **API ID**: `program_details`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProgramDetailsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProgramDetailsDocumentData>,
+    "program_details",
+    Lang
+  >;
+
+type ProgrampageDocumentDataSlicesSlice = ProgramPageSlice;
+
+/**
+ * Content for ProgramPage documents
+ */
+interface ProgrampageDocumentData {
+  /**
+   * Slice Zone field in *ProgramPage*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: programpage.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProgrampageDocumentDataSlicesSlice> /**
+   * Meta Title field in *ProgramPage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: programpage.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *ProgramPage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: programpage.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *ProgramPage*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: programpage.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * ProgramPage document from Prismic
+ *
+ * - **API ID**: `programpage`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProgrampageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProgrampageDocumentData>,
+    "programpage",
+    Lang
+  >;
 
 /**
  * Item in *Settings → Navigation*
@@ -131,7 +316,11 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = PageDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | PageDocument
+  | ProgramDetailsDocument
+  | ProgrampageDocument
+  | SettingsDocument;
 
 /**
  * Item in *AboutUs → Default → Primary → Adventure Learning*
@@ -545,116 +734,131 @@ export type IdentitySectionSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *Programs → Default → Primary → Programs*
+ * Item in *ProgramDetails → Default → Primary → Programs Details*
  */
-export interface ProgramsSliceDefaultPrimaryProgramsItem {
+export interface ProgramDetailsSliceDefaultPrimaryProgramsDetailsItem {
   /**
-   * Is Program Active field in *Programs → Default → Primary → Programs*
+   * A Single Program Details field in *ProgramDetails → Default → Primary → Programs Details*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_details.default.primary.programs_details[].a_single_program_details
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  a_single_program_details: prismic.ContentRelationshipField<"program_details">;
+
+  /**
+   * Is Program Active field in *ProgramDetails → Default → Primary → Programs Details*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: programs.default.primary.programs[].is_program_active
+   * - **Default Value**: true
+   * - **API ID Path**: program_details.default.primary.programs_details[].is_program_active
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   is_program_active: prismic.BooleanField;
-
-  /**
-   * Badge field in *Programs → Default → Primary → Programs*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: programs.default.primary.programs[].badge
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  badge: prismic.ImageField<never>;
-
-  /**
-   * Program Title field in *Programs → Default → Primary → Programs*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: programs.default.primary.programs[].program_title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  program_title: prismic.KeyTextField;
-
-  /**
-   * Program Subtitle field in *Programs → Default → Primary → Programs*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: programs.default.primary.programs[].program_subtitle
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  program_subtitle: prismic.KeyTextField;
-
-  /**
-   * Redirect to program page field in *Programs → Default → Primary → Programs*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: programs.default.primary.programs[].redirect_to_program_page
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  redirect_to_program_page: prismic.LinkField;
 }
 
 /**
- * Primary content in *Programs → Default → Primary*
+ * Primary content in *ProgramDetails → Default → Primary*
  */
-export interface ProgramsSliceDefaultPrimary {
+export interface ProgramDetailsSliceDefaultPrimary {
   /**
-   * Section Title field in *Programs → Default → Primary*
+   * Section Title field in *ProgramDetails → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: programs.default.primary.section_title
+   * - **API ID Path**: program_details.default.primary.section_title
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   section_title: prismic.KeyTextField;
 
   /**
-   * Programs field in *Programs → Default → Primary*
+   * Programs Details field in *ProgramDetails → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: programs.default.primary.programs[]
+   * - **API ID Path**: program_details.default.primary.programs_details[]
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  programs: prismic.GroupField<
-    Simplify<ProgramsSliceDefaultPrimaryProgramsItem>
+  programs_details: prismic.GroupField<
+    Simplify<ProgramDetailsSliceDefaultPrimaryProgramsDetailsItem>
   >;
 }
 
 /**
- * Default variation for Programs Slice
+ * Default variation for ProgramDetails Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type ProgramsSliceDefault = prismic.SharedSliceVariation<
+export type ProgramDetailsSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<ProgramsSliceDefaultPrimary>,
+  Simplify<ProgramDetailsSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *Programs*
+ * Slice variation for *ProgramDetails*
  */
-type ProgramsSliceVariation = ProgramsSliceDefault;
+type ProgramDetailsSliceVariation = ProgramDetailsSliceDefault;
 
 /**
- * Programs Shared Slice
+ * ProgramDetails Shared Slice
  *
- * - **API ID**: `programs`
- * - **Description**: Programs
+ * - **API ID**: `program_details`
+ * - **Description**: ProgramDetails
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type ProgramsSlice = prismic.SharedSlice<
-  "programs",
-  ProgramsSliceVariation
+export type ProgramDetailsSlice = prismic.SharedSlice<
+  "program_details",
+  ProgramDetailsSliceVariation
+>;
+
+/**
+ * Primary content in *ProgramPage → Default → Primary*
+ */
+export interface ProgramPageSliceDefaultPrimary {
+  /**
+   * Program Details field in *ProgramPage → Default → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_page.default.primary.program_details
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  program_details: prismic.ContentRelationshipField<"program_details">;
+}
+
+/**
+ * Default variation for ProgramPage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProgramPageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProgramPageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ProgramPage*
+ */
+type ProgramPageSliceVariation = ProgramPageSliceDefault;
+
+/**
+ * ProgramPage Shared Slice
+ *
+ * - **API ID**: `program_page`
+ * - **Description**: ProgramPage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProgramPageSlice = prismic.SharedSlice<
+  "program_page",
+  ProgramPageSliceVariation
 >;
 
 /**
@@ -808,6 +1012,13 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      ProgramDetailsDocument,
+      ProgramDetailsDocumentData,
+      ProgramDetailsDocumentDataAboutTheProgramItem,
+      ProgramDetailsDocumentDataProgramPicturesItem,
+      ProgrampageDocument,
+      ProgrampageDocumentData,
+      ProgrampageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
@@ -833,11 +1044,15 @@ declare module "@prismicio/client" {
       IdentitySectionSliceDefaultPrimary,
       IdentitySectionSliceVariation,
       IdentitySectionSliceDefault,
-      ProgramsSlice,
-      ProgramsSliceDefaultPrimaryProgramsItem,
-      ProgramsSliceDefaultPrimary,
-      ProgramsSliceVariation,
-      ProgramsSliceDefault,
+      ProgramDetailsSlice,
+      ProgramDetailsSliceDefaultPrimaryProgramsDetailsItem,
+      ProgramDetailsSliceDefaultPrimary,
+      ProgramDetailsSliceVariation,
+      ProgramDetailsSliceDefault,
+      ProgramPageSlice,
+      ProgramPageSliceDefaultPrimary,
+      ProgramPageSliceVariation,
+      ProgramPageSliceDefault,
       QuestionsAndAnswersSlice,
       QuestionsAndAnswersSliceDefaultPrimaryQuestionsAndAnswersItem,
       QuestionsAndAnswersSliceDefaultPrimary,

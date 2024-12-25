@@ -1,14 +1,19 @@
 <template>
   <div class="content-grid min-h-dvh grid-rows-[auto_1fr_auto]">
+    <!-- SEO Related Components -->
     <Head>
       <Title>{{ settings.data.site_title }}</Title>
       <Meta name="description" :content="settings.data.meta_description" />
       <Meta property="og:image" :content="settings.data.og_image.url" />
     </Head>
 
+    <!-- Header -->
     <PrimaryHeader />
 
+    <!-- Main Content -->
     <slot />
+
+    <!-- Footer -->
     <PrimaryFooter />
   </div>
 </template>
