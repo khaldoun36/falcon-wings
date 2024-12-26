@@ -19,8 +19,6 @@ const { slice } = defineProps(
   ]),
 );
 
-const isMorphed = ref(false);
-
 const updatedFAQ = computed(() => {
   return slice.primary.questions_and_answers.map((item) => {
     return {

@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | LocationsSlice
   | ProgramDetailsSlice
   | QuestionsAndAnswersSlice
   | IdentitySectionSlice
@@ -734,6 +735,106 @@ export type IdentitySectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Locations → Default → Primary → Locations*
+ */
+export interface LocationsSliceDefaultPrimaryLocationsItem {
+  /**
+   * School Name field in *Locations → Default → Primary → Locations*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: locations.default.primary.locations[].school_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  school_name: prismic.KeyTextField;
+
+  /**
+   * School Image field in *Locations → Default → Primary → Locations*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: locations.default.primary.locations[].school_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  school_image: prismic.ImageField<never>;
+
+  /**
+   * School Location field in *Locations → Default → Primary → Locations*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: locations.default.primary.locations[].school_location
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  school_location: prismic.SelectField<
+    | "Fujayrah"
+    | "Sharjah"
+    | "Ras Al Khaymah"
+    | "Dubai"
+    | "Abu Dhabi"
+    | "Umm Al Qaywayn"
+    | "Ajman"
+  >;
+}
+
+/**
+ * Primary content in *Locations → Default → Primary*
+ */
+export interface LocationsSliceDefaultPrimary {
+  /**
+   * Section Title field in *Locations → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: locations.default.primary.section_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_title: prismic.KeyTextField;
+
+  /**
+   * Locations field in *Locations → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: locations.default.primary.locations[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  locations: prismic.GroupField<
+    Simplify<LocationsSliceDefaultPrimaryLocationsItem>
+  >;
+}
+
+/**
+ * Default variation for Locations Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LocationsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LocationsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Locations*
+ */
+type LocationsSliceVariation = LocationsSliceDefault;
+
+/**
+ * Locations Shared Slice
+ *
+ * - **API ID**: `locations`
+ * - **Description**: Locations
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LocationsSlice = prismic.SharedSlice<
+  "locations",
+  LocationsSliceVariation
+>;
+
+/**
  * Item in *ProgramDetails → Default → Primary → Programs Details*
  */
 export interface ProgramDetailsSliceDefaultPrimaryProgramsDetailsItem {
@@ -1044,6 +1145,11 @@ declare module "@prismicio/client" {
       IdentitySectionSliceDefaultPrimary,
       IdentitySectionSliceVariation,
       IdentitySectionSliceDefault,
+      LocationsSlice,
+      LocationsSliceDefaultPrimaryLocationsItem,
+      LocationsSliceDefaultPrimary,
+      LocationsSliceVariation,
+      LocationsSliceDefault,
       ProgramDetailsSlice,
       ProgramDetailsSliceDefaultPrimaryProgramsDetailsItem,
       ProgramDetailsSliceDefaultPrimary,

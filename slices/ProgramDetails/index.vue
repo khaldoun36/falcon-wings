@@ -26,6 +26,7 @@ defineProps(
         :key="String(programDetails.a_single_program_details.id)"
         :isProgramActive="programDetails.is_program_active"
       />
+      <div></div>
     </div>
   </section>
 </template>
