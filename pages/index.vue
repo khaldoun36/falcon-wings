@@ -18,10 +18,5 @@ useHead({
 </script>
 
 <template>
-  <SliceZone
-    class="full-width content-grid"
-    wrapper="main"
-    :slices="page?.data.slices ?? []"
-    :components="components"
-  />
+  <SliceZone :slices="page?.data.slices ?? []" :components="components" />
 </template>

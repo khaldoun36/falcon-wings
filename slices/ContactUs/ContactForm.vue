@@ -19,14 +19,6 @@
       <input type="tel" name="phone" id="phone" v-model="form.phone" />
     </div>
     <div class="flex flex-col gap-2">
-      <label for="role">Role <span class="text-red-500">*</span></label>
-      <select name="role" id="role" v-model="form.role" required>
-        <option value="">Select your role</option>
-        <option value="student">Student</option>
-        <option value="school_director">School Director</option>
-      </select>
-    </div>
-    <div class="flex flex-col gap-2">
       <label for="school"
         >School/Organization <span class="text-red-500">*</span></label
       >
@@ -43,6 +35,11 @@
       <textarea
         name="message"
         id="message"
+        :placeholder="
+          locale === 'en'
+            ? 'What make the Falcon\'s Wings program a good fit for my school?'
+            : 'لماذا يعتبر برنامج فالكونز وينجز مناسباً لمدرستنا؟'
+        "
         v-model="form.message"
         required
       ></textarea>
@@ -67,7 +64,6 @@ const form = ref({
   name: "",
   email: "",
   phone: "",
-  role: "",
   message: "",
   school: "",
 });
@@ -94,7 +90,6 @@ const submitForm = async () => {
         name: "",
         email: "",
         phone: "",
-        role: "",
         message: "",
         school: "",
       };
@@ -110,6 +105,8 @@ const submitForm = async () => {
     }, 5000);
   }
 };
+
+const { locale } = useI18n();
 </script>
 
 <style scoped>

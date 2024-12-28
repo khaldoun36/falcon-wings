@@ -17,7 +17,7 @@ module.exports = {
         primary: colors.emerald,
       },
       borderRadius: {
-        lg: "8px",
+        lg: "10px",
       },
     },
   },

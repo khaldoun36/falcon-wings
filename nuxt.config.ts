@@ -4,12 +4,7 @@ import { repositoryName, apiEndpoint } from "./slicemachine.config.json";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: [
-    "~/assets/css/main.css",
-    "~/assets/css/wrapper.css",
-    "~/assets/css/typography.css",
-    "~/assets/css/button.css",
-  ],
+  css: ["~/assets/css/main.css", "~/assets/css/button.css"],
 
   app: {
     head: {
@@ -34,7 +29,19 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxt/image",
     "@vueuse/nuxt",
+    "@nuxtjs/i18n",
   ],
+
+  i18n: {
+    locales: ["en", "ar"],
+    defaultLocale: "en",
+    strategy: "prefix_except_default",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      redirectOn: "root",
+    },
+  },
 
   image: {
     provider: "prismic",

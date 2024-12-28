@@ -1,5 +1,29 @@
+<template>
+  <div class="bg-amber-500/20">
+    <Container tag="section" class="py-20 md:py-28 lg:py-32">
+      <h2
+        class="text-balance text-center text-2xl md:text-3xl lg:text-5xl"
+        :class="{ 'tracking-wide': locale === 'en' }"
+      >
+        {{ slice.primary.section_title }}
+      </h2>
+      <div
+        class="mt-10 grid place-content-center gap-8 md:mt-12 md:grid-cols-2 lg:mt-16 lg:flex lg:items-center lg:justify-center"
+      >
+        <ProgramCard
+          v-for="programDetails in slice.primary.programs_details"
+          :passedItems="programDetails.a_single_program_details"
+          :key="String(programDetails.a_single_program_details.id)"
+          :isProgramActive="programDetails.is_program_active"
+        />
+      </div>
+    </Container>
+  </div>
+</template>
+
 <script setup lang="ts">
-import ProgramCard from "../../components/base/ProgramCard.vue";
+import Container from "../../components/base/Container.vue";
+import ProgramCard from "./ProgramCard.vue";
 import { type Content } from "@prismicio/client";
 
 // The array passed to `getSliceComponentProps` is purely optional.
@@ -12,21 +36,8 @@ defineProps(
     "context",
   ]),
 );
+
+const { locale } = useI18n();
 </script>
 
-<template>
-  <section class="my-20 md:my-28 lg:my-32">
-    <h2 class="text-balance text-center text-2xl md:text-3xl lg:text-5xl">
-      {{ slice.primary.section_title }}
-    </h2>
-    <div class="mt-10 grid gap-8 md:mt-12 md:grid-cols-2 lg:mt-16">
-      <ProgramCard
-        v-for="programDetails in slice.primary.programs_details"
-        :passedItems="programDetails.a_single_program_details"
-        :key="String(programDetails.a_single_program_details.id)"
-        :isProgramActive="programDetails.is_program_active"
-      />
-      <div></div>
-    </div>
-  </section>
-</template>
+<style scoped></style>
