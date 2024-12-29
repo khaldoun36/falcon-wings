@@ -1,23 +1,20 @@
 <template>
-  <div class="bg-primary-700/20">
-    <Container tag="section" class="py-20 md:py-28 xl:py-32">
-      <div class="grid place-content-center gap-8 md:grid-cols-[1fr_1.25fr]">
-        <div class="flex flex-col justify-between">
-          <h2 class="text-balance text-2xl md:text-3xl lg:text-5xl">
-            {{ slice.primary.section_title }}
-          </h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et,
-            voluptatibus!
-          </p>
-        </div>
-        <div class="group p-8">
-          <Map
-            class="min-h-full min-w-full transition-transform group-hover:scale-105"
-          />
-        </div>
+  <div
+    class="grid overflow-clip bg-primary-700/20 py-20 md:py-28 lg:grid-cols-[1fr_1.5fr] xl:py-32"
+  >
+    <Container tag="section">
+      <div class="flex flex-col justify-between">
+        <h2 class="text-balance text-2xl md:text-3xl lg:text-5xl">
+          {{ slice.primary.section_title }}
+        </h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et,
+          voluptatibus!
+        </p>
       </div>
     </Container>
+
+    <Map class="-mt-20 md:-mt-32 xl:-mt-40" />
   </div>
 </template>
 

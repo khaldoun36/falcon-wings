@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-amber-500/20">
+  <div class="bg-[hsl(46_74%_92%_/_.4)]">
     <Container tag="section" class="py-20 md:py-28 lg:py-32">
       <h2
         class="text-balance text-center text-2xl md:text-3xl lg:text-5xl"
