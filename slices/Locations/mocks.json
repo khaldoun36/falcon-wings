@@ -15,14 +15,6 @@
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"school_name",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "whistle",
-									"type": "Text"
-								}
-							],
-							[
 								"school_image",
 								{
 									"origin": {
@@ -46,14 +38,6 @@
 									"alt": null,
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
-								}
-							],
-							[
-								"school_location",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "Fujayrah",
-									"type": "Select"
 								}
 							]
 						]

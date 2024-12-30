@@ -25,35 +25,12 @@
             "label": "Locations",
             "repeat": true,
             "fields": {
-              "school_name": {
-                "type": "Text",
-                "config": {
-                  "label": "School Name",
-                  "placeholder": ""
-                }
-              },
               "school_image": {
                 "type": "Image",
                 "config": {
                   "label": "School Image",
                   "constraint": {},
                   "thumbnails": []
-                }
-              },
-              "school_location": {
-                "type": "Select",
-                "config": {
-                  "label": "School Location",
-                  "placeholder": "",
-                  "options": [
-                    "Fujayrah",
-                    "Sharjah",
-                    "Ras Al Khaymah",
-                    "Dubai",
-                    "Abu Dhabi",
-                    "Umm Al Qaywayn",
-                    "Ajman"
-                  ]
                 }
               }
             }

@@ -16,9 +16,9 @@
     <circle cx="195207" cy="4708.04" r="933.333" />
     <circle cx="199624" cy="4708.04" r="933.333" />
     <circle cx="204040" cy="4708.04" r="933.333" />
-    <circle cx="192999" cy="8532.83" r="933.333" class="fill-transparent" />
-    <circle cx="197415" cy="8532.83" r="933.333" class="fill-transparent" />
-    <circle cx="201832" cy="8532.83" r="933.333" class="fill-transparent" />
+    <circle cx="192999" cy="8532.83" r="933.333" />
+    <circle cx="197415" cy="8532.83" r="933.333" />
+    <circle cx="201832" cy="8532.83" r="933.333" />
     <circle cx="190791" cy="12357.6" r="933.333" />
     <circle cx="195207" cy="12357.6" r="933.333" />
     <circle cx="199624" cy="12357.6" r="933.333" />
@@ -241,23 +241,15 @@
     <path
       d="m140011 85003-3246.13-3246.13c-1032.24-923.259-1623.07-2244.4-1623.07-3629.29 0-2671.16 2198.03-4869.2 4869.2-4869.2 2671.16 0 4869.2 2198.04 4869.2 4869.2 0 1384.89-590.831 2706.03-1623.07 3629.29L140011 85003Z"
       style="
-        fill: none;
         fill-rule: nonzero;
         stroke: #404040;
         stroke-opacity: 0.89;
         stroke-width: 1082.04px;
       "
+      class="fill-neutral-700 !stroke-neutral-700"
     />
     <circle cx="140031" cy="78089.6" r="3439.58" style="fill: #047857" />
-    <text
-      x="138646"
-      y="79708.3"
-      style="
-        font-family: &quot;ArialMT&quot;, &quot;Arial&quot;, sans-serif;
-        font-size: 4874.53px;
-        fill: #f5f5f5;
-      "
-    >
+    <text x="138646" y="79708.3" style="font-size: 4874.53px; fill: #f5f5f5">
       2
     </text>
     <circle cx="144418" cy="85027.9" r="933.333" />

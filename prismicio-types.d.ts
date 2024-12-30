@@ -739,16 +739,6 @@ export type IdentitySectionSlice = prismic.SharedSlice<
  */
 export interface LocationsSliceDefaultPrimaryLocationsItem {
   /**
-   * School Name field in *Locations → Default → Primary → Locations*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: locations.default.primary.locations[].school_name
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  school_name: prismic.KeyTextField;
-
-  /**
    * School Image field in *Locations → Default → Primary → Locations*
    *
    * - **Field Type**: Image
@@ -757,24 +747,6 @@ export interface LocationsSliceDefaultPrimaryLocationsItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   school_image: prismic.ImageField<never>;
-
-  /**
-   * School Location field in *Locations → Default → Primary → Locations*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: locations.default.primary.locations[].school_location
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  school_location: prismic.SelectField<
-    | "Fujayrah"
-    | "Sharjah"
-    | "Ras Al Khaymah"
-    | "Dubai"
-    | "Abu Dhabi"
-    | "Umm Al Qaywayn"
-    | "Ajman"
-  >;
 }
 
 /**
