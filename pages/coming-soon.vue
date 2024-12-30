@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import Container from "@/components/base/container";
+import Container from "~/components/base/Container.vue";
 const { locale } = useI18n();
 </script>
 
