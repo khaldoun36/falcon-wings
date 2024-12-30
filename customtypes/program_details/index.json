@@ -48,25 +48,18 @@
               }
             },
             "subtitle": {
-              "type": "Text",
+              "type": "StructuredText",
               "config": {
                 "label": "Subtitle",
-                "placeholder": ""
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,strong,em,list-item,rtl"
               }
-            }
-          }
-        }
-      },
-      "program_pictures": {
-        "type": "Group",
-        "config": {
-          "label": "Program Pictures",
-          "repeat": true,
-          "fields": {
+            },
             "image": {
               "type": "Image",
               "config": {
-                "label": "Image",
+                "label": "image",
                 "constraint": {},
                 "thumbnails": []
               }

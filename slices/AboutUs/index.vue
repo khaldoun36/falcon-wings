@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-primary-950 py-20 md:py-24 lg:py-32">
+  <section class="bg-primary-950 py-20 md:py-24 lg:py-32" id="about">
     <Container tag="div">
       <h2
         class="mx-auto max-w-[30ch] text-balance text-center text-2xl text-neutral-100 md:text-3xl lg:text-5xl"

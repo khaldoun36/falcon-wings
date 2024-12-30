@@ -4,39 +4,36 @@
     class="pointer-events-none absolute top-0 h-[1px] w-full opacity-0"
   ></div>
   <header
-    class="full-width content-grid fixed left-0 right-0 top-0 z-50 mx-auto rounded-none border border-white/0 bg-primary-950/0 py-2 backdrop-blur-none transition-all duration-[250ms]"
+    class="fixed left-0 right-0 top-0 z-50 mx-auto rounded-none border border-white/0 bg-primary-950/0 py-2 backdrop-blur-none transition-all duration-[250ms]"
     :class="{
       'active !left-[8px] !right-[8px] !top-[8px] !rounded-lg !border-white/10':
         isScrolled || useRoute().path !== '/',
     }"
   >
-    <div class="flex items-center justify-between">
+    <Container tag="div" class="flex items-center justify-between">
       <NuxtLink to="/" aria-label="Home">
         <Logo />
       </NuxtLink>
       <nav :class="{ open: isOpen }">
         <ul class="flex items-center justify-center gap-2">
           <li
-            v-for="item in settings.data.navigation.slice(0, -1)"
+            v-for="item in enNav.slice(0, -1)"
             :key="item.link.key"
             class="cursor-pointer rounded-lg px-4 py-2 text-center text-base normal-case text-neutral-100 transition-colors hover:text-neutral-400 active:text-neutral-500"
             @click="isOpen = false"
           >
-            <PrismicLink :field="item.link">{{ item.link.text }}</PrismicLink>
+            <NuxtLink :to="item.link">{{ item.text }}</NuxtLink>
           </li>
         </ul>
       </nav>
-      <PrismicLink
-        :field="
-          settings.data.navigation[settings.data.navigation.length - 1].link
-        "
-        class="button !hidden md:!flex"
+      <Button
+        v-for="item in enNav.slice(-1)"
+        :target="localePath(item.link)"
+        variant="primary"
       >
-        {{
-          settings.data.navigation[settings.data.navigation.length - 1].link
-            .text
-        }}
-      </PrismicLink>
+        {{ item.text }}
+      </Button>
+
       <button
         @click="isOpen = !isOpen"
         class="relative mt-2 flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden"
@@ -52,12 +49,14 @@
           :class="{ '-rotate-45': isOpen }"
         />
       </button>
-    </div>
+    </Container>
   </header>
 </template>
 
 <script setup>
 import Logo from "./Logo.vue";
+import Container from "./Container.vue";
+import Button from "./Button.vue";
 import { useSettings } from "~/composables/useSettings";
 
 const { settings } = useSettings();
@@ -87,6 +86,42 @@ onMounted(() => {
     observer.disconnect();
   });
 });
+
+const { locale } = useI18n();
+const localePath = useLocalePath();
+
+const enNav = [
+  {
+    text: "Home",
+    link: "/",
+    key: Math.random() + "home",
+  },
+  {
+    text: "About us",
+    link: "/#about",
+    key: Math.random() + "about",
+  },
+  {
+    text: "Programs",
+    link: "/#programs",
+    key: Math.random() + "programs",
+  },
+  {
+    text: "Locations",
+    link: "/#locations",
+    key: Math.random() + "locations",
+  },
+  {
+    text: "Q&A",
+    link: "/#faq",
+    key: Math.random() + "faq",
+  },
+  {
+    text: "Contact us",
+    link: "/#contact",
+    key: Math.random() + "contact",
+  },
+];
 </script>
 
 <style scoped>

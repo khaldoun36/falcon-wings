@@ -1,68 +1,46 @@
 <template>
-  <main class="mb-20 mt-40 md:mb-28 md:mt-44 lg:mb-32">
-    <!-- main sticky container -->
-    <div class="relative grid gap-16 lg:grid-cols-[1.5fr_1fr] lg:gap-20">
-      <!-- images container -->
-      <div class="grid gap-8">
+  <main v-if="pageProgram">
+    <section
+      v-for="(item, index) in pageProgram"
+      :key="index"
+      class="py-20 md:py-28 lg:py-32"
+      :class="[
+        index % 2 === 0 ? 'bg-primary-700/20' : 'bg-[hsl(46_74%_92%_/_.4)]',
+        [index === 0 ? '!pt-48 md:!pt-52 lg:!pt-56' : ''],
+      ]"
+    >
+      <Container tag="div" class="grid gap-8 lg:grid-cols-2 lg:gap-20">
         <NuxtImg
-          v-for="image in pageProgram?.program_pictures"
-          :src="image.image.url"
-          :alt="image.image.alt"
-          :width="image.image.dimensions.width"
-          :height="image.image.dimensions.height"
-          class="aspect-square w-full rounded-lg border border-black/10 object-cover shadow-sm"
+          :src="item.image.url"
+          :alt="item.image.alt"
+          :width="item.image.dimensions.width"
+          :height="item.image.dimensions.height"
+          class="aspect-square h-auto w-full rounded-lg border border-white/10 object-cover"
+          :class="{ 'lg:!col-start-1 lg:!row-start-1': index % 2 === 0 }"
         />
-      </div>
-      <!-- content container -->
-      <div class="row-start-1 h-fit lg:sticky lg:top-[128px] lg:row-start-auto">
-        <h1 class="text-balance text-3xl capitalize md:text-4xl lg:text-6xl">
-          {{ pageProgram?.program_title }}
-        </h1>
-        <p
-          class="mt-5 text-balance text-base text-neutral-600/80 md:text-lg lg:mt-6"
+        <div
+          class="prose md:mt-8"
+          :class="{ 'lg:!col-start-1 lg:!row-start-1': index % 2 !== 0 }"
         >
-          {{ pageProgram?.program_description }}
-        </p>
-        <div v-if="updatedSkills">
-          <AccordionRoot
-            class="mt-8 space-y-8"
-            :default-value="updatedSkills[0].id"
-            type="single"
-            :collapsible="true"
+          <h2
+            class="text-balance text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+            :class="{ 'tracking-wide': locale === 'en' }"
           >
-            <AccordionItem
-              v-for="item in updatedSkills"
-              :key="item.id"
-              :value="item.id"
-              class="accordion-item rounded-lg border border-black/10 p-4"
-            >
-              <AccordionHeader>
-                <AccordionTrigger
-                  class="flex min-w-full items-center justify-between text-lg text-neutral-950 md:text-xl"
-                  >{{ item.question }}
-                  <span class="expand-collapse-icon"></span>
-                </AccordionTrigger>
-              </AccordionHeader>
-              <AccordionContent
-                class="mt-5 text-base text-neutral-600 md:mt-6"
-                >{{ item.answer }}</AccordionContent
-              >
-            </AccordionItem>
-          </AccordionRoot>
+            {{ item.title }}
+          </h2>
+
+          <PrismicRichText
+            :field="item.subtitle"
+            class="mt-6 max-w-prose text-pretty"
+          />
         </div>
-      </div>
-    </div>
+      </Container>
+    </section>
   </main>
 </template>
 
 <script setup>
-import {
-  AccordionContent,
-  AccordionHeader,
-  AccordionItem,
-  AccordionRoot,
-  AccordionTrigger,
-} from "radix-vue";
+import Container from "~/components/base/Container.vue";
 import { usePrograms } from "~/composables/usePrograms";
 
 const { programDetails } = usePrograms();
@@ -71,27 +49,29 @@ const route = useRoute();
 
 const programUid = route.params.uid;
 
+const pageProgram = ref(null);
+
 const program = computed(() => {
   return programDetails.value?.filter((program) => program.uid === programUid);
 });
 
-const pageProgram = computed(() => {
-  if (program.value) {
-    return program.value[0]?.data;
-  } else {
-    return null;
-  }
-});
+watch(
+  [program],
+  () => {
+    if (program.value && program.value.length > 0) {
+      pageProgram.value = program.value[0].data.about_the_program;
+    }
+  },
+  { immediate: true },
+);
 
-const updatedSkills = computed(() => {
-  return pageProgram.value?.about_the_program.map((item) => {
-    return {
-      id: `${item.title}-${Math.random().toString(36).substring(2, 9)}`,
-      question: item.title,
-      answer: item.subtitle,
-    };
-  });
-});
+const { locale } = useI18n();
 </script>
 
-<style scoped></style>
+<style scoped>
+main :not(h1, h2, h3, h4, h5, h6) {
+  @apply text-base md:text-lg;
+  --body-color: theme("colors.neutral.600/80%");
+  color: var(--body-color);
+}
+</style>

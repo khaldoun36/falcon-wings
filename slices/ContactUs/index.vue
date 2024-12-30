@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-primary-950 py-20 md:py-28 lg:py-32">
+  <section class="bg-primary-950 py-20 md:py-28 lg:py-32" id="contact">
     <Container
       tag="div"
       class="grid items-start gap-8 lg:grid-cols-[1fr_1.25fr] lg:gap-16"

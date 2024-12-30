@@ -1,6 +1,7 @@
 <template>
   <div
     class="relative items-center overflow-hidden bg-primary-700/20 px-4 py-20 md:px-8 md:py-28 lg:grid lg:grid-cols-2 lg:px-0 xl:py-32"
+    id="locations"
   >
     <h2
       class="text-balance text-center text-2xl md:text-3xl lg:hidden lg:text-5xl"
@@ -47,6 +48,7 @@
             :width="item.school_image.dimensions.width"
             :height="item.school_image.dimensions.height"
             class="scale-110 object-cover"
+            :class="{ 'scale-[80%]': index === 1 }"
           />
         </div>
       </div>

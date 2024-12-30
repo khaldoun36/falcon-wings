@@ -18,13 +18,12 @@
         class="text-balance text-center text-3xl !text-neutral-100 sm:text-4xl md:text-5xl lg:text-6xl"
         :class="{ 'tracking-wide': locale === 'en' }"
       >
-        {{ slice.primary.hero_title }}
-      </h1>
-      <p
-        class="mx-auto mt-6 max-w-prose text-pretty text-center text-base !text-neutral-300/80 md:text-lg"
-      >
+        {{ slice.primary.hero_title }} <br />
         {{ slice.primary.hero_subtitle }}
-      </p>
+      </h1>
+      <!-- <p
+        class="mx-auto mt-6 max-w-prose text-pretty text-center text-base !text-neutral-300/80 md:text-lg"
+      ></p> -->
       <ul class="mx-auto mt-10 flex gap-8">
         <li
           v-for="(item, index) in slice.primary.hero_cal_to_action"

@@ -44,7 +44,9 @@
         required
       ></textarea>
     </div>
-    <button type="submit" class="button mt-4 min-w-full">Send Message</button>
+    <Button type="submit" variant="primary" class="mt-8">{{
+      locale === "en" ? "Send Message" : "إرسال الرسالة"
+    }}</Button>
     <p
       v-if="result"
       :class="{
@@ -58,6 +60,7 @@
 </template>
 
 <script setup>
+import Button from "@/components/base/Button.vue";
 const form = ref({
   access_key: "YOUR_ACCESS_KEY_HERE", // Security issue: API key should be in env variables
   subject: "New Submission from Web3Forms",

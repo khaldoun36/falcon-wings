@@ -7,7 +7,7 @@
       <Meta property="og:image" :content="settings.data.og_image.url" />
     </Head>
 
-    <!-- <PrimaryHeader /> -->
+    <PrimaryHeader />
 
     <NuxtPage />
 

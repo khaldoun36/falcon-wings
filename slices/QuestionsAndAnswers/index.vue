@@ -1,14 +1,16 @@
 <template>
-  <div class="bg-primary-700/20">
+  <div class="bg-primary-700/20" id="faq">
     <Container tag="section" class="py-20 md:py-28 lg:py-32">
       <h2 class="text-balance text-center text-2xl md:text-3xl lg:text-5xl">
         {{ slice.primary.sectiontitle }}
       </h2>
 
       <div class="mt-10 grid gap-20 md:mt-12 lg:mt-16 lg:grid-cols-2">
-        <div
-          class="hidden aspect-square h-auto w-full rounded-lg border border-black/10 bg-primary-500 lg:block"
-        ></div>
+        <PrismicImage
+          :field="slice.primary.image"
+          class="hidden aspect-square h-auto w-full rounded-lg border border-black/10 object-cover lg:block"
+        />
+
         <div>
           <AccordionRoot
             class="space-y-8"
@@ -29,9 +31,11 @@
                   <span class="expand-collapse-icon"></span>
                 </AccordionTrigger>
               </AccordionHeader>
-              <AccordionContent class="mt-8 text-base text-neutral-600">{{
-                item.answer
-              }}</AccordionContent>
+
+              <AccordionContent
+                class="data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp mt-8 text-base text-neutral-600"
+                >{{ item.answer }}</AccordionContent
+              >
             </AccordionItem>
           </AccordionRoot>
         </div>
@@ -106,5 +110,14 @@ button[data-state="open"] .expand-collapse-icon::after {
 
 button[data-state="open"] .expand-collapse-icon::before {
   transform: rotate(90deg) scale(0);
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
 }
 </style>

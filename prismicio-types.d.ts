@@ -69,24 +69,19 @@ export interface ProgramDetailsDocumentDataAboutTheProgramItem {
   /**
    * Subtitle field in *Program Details → About the Program*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: program_details.about_the_program[].subtitle
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  subtitle: prismic.KeyTextField;
-}
+  subtitle: prismic.RichTextField;
 
-/**
- * Item in *Program Details → Program Pictures*
- */
-export interface ProgramDetailsDocumentDataProgramPicturesItem {
   /**
-   * Image field in *Program Details → Program Pictures*
+   * image field in *Program Details → About the Program*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: program_details.program_pictures[].image
+   * - **API ID Path**: program_details.about_the_program[].image
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
@@ -140,19 +135,6 @@ interface ProgramDetailsDocumentData {
    */
   about_the_program: prismic.GroupField<
     Simplify<ProgramDetailsDocumentDataAboutTheProgramItem>
-  >;
-
-  /**
-   * Program Pictures field in *Program Details*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: program_details.program_pictures[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  program_pictures: prismic.GroupField<
-    Simplify<ProgramDetailsDocumentDataProgramPicturesItem>
   >;
 }
 
@@ -238,21 +220,6 @@ export type ProgrampageDocument<Lang extends string = string> =
   >;
 
 /**
- * Item in *Settings → Navigation*
- */
-export interface SettingsDocumentDataNavigationItem {
-  /**
-   * Link field in *Settings → Navigation*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.navigation[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-}
-
-/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -288,17 +255,6 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   og_image: prismic.ImageField<never>;
-
-  /**
-   * Navigation field in *Settings*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.navigation[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  navigation: prismic.GroupField<Simplify<SettingsDocumentDataNavigationItem>>;
 }
 
 /**
@@ -974,6 +930,16 @@ export interface QuestionsAndAnswersSliceDefaultPrimary {
   sectiontitle: prismic.KeyTextField;
 
   /**
+   * Image field in *QuestionsAndAnswers → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: questions_and_answers.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
    * Questions and answers field in *QuestionsAndAnswers → Default → Primary*
    *
    * - **Field Type**: Group
@@ -1088,13 +1054,11 @@ declare module "@prismicio/client" {
       ProgramDetailsDocument,
       ProgramDetailsDocumentData,
       ProgramDetailsDocumentDataAboutTheProgramItem,
-      ProgramDetailsDocumentDataProgramPicturesItem,
       ProgrampageDocument,
       ProgrampageDocumentData,
       ProgrampageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
-      SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
       AboutUsSlice,
       AboutUsSliceDefaultPrimaryAdventureLearningItem,
