@@ -556,6 +556,16 @@ export interface HomeHeroSectionSliceDefaultPrimary {
   hero_subtitle: prismic.KeyTextField;
 
   /**
+   * Hero Descrption field in *HomeHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_hero_section.default.primary.hero_descrption
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hero_descrption: prismic.KeyTextField;
+
+  /**
    * Hero Cal to Action field in *HomeHeroSection → Default → Primary*
    *
    * - **Field Type**: Group

@@ -34,6 +34,13 @@
             "placeholder": ""
           }
         },
+        "hero_descrption": {
+          "type": "Text",
+          "config": {
+            "label": "Hero Descrption",
+            "placeholder": ""
+          }
+        },
         "hero_cal_to_action": {
           "type": "Group",
           "config": {

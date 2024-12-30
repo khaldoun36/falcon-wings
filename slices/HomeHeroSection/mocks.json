@@ -45,8 +45,8 @@
 							[
 								"link",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "0860ebb4-143d-4803-afd3-32ca259751f5",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "ExternalLink",
 										"url": "https://prismic.io",
@@ -57,6 +57,11 @@
 						]
 					}
 				]
+			},
+			"hero_descrption": {
+				"__TYPE__": "FieldContent",
+				"value": "pie",
+				"type": "Text"
 			}
 		},
 		"items": []

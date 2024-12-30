@@ -21,9 +21,11 @@
         {{ slice.primary.hero_title }} <br />
         {{ slice.primary.hero_subtitle }}
       </h1>
-      <!-- <p
+      <p
         class="mx-auto mt-6 max-w-prose text-pretty text-center text-base !text-neutral-300/80 md:text-lg"
-      ></p> -->
+      >
+        {{ slice.primary.hero_descrption }}
+      </p>
       <ul class="mx-auto mt-10 flex gap-8">
         <li
           v-for="(item, index) in slice.primary.hero_cal_to_action"
