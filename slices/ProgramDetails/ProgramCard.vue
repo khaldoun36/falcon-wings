@@ -1,13 +1,14 @@
 <template>
+  <!-- border border-black/10 bg-white/80 shadow-sm -->
   <NuxtLink
-    class="group block cursor-pointer rounded-lg border border-black/10 bg-white/80 shadow-sm transition-all"
+    class="group block cursor-pointer rounded-lg transition-all"
     :to="
       isProgramActive
         ? localePath(`/programs/${passedItems.uid}`)
         : localePath('/coming-soon')
     "
   >
-    <article class="flex h-full max-w-[520px] flex-col gap-8 p-8 text-center">
+    <article class="flex h-full max-w-[520px] flex-col gap-8 text-center">
       <NuxtImg
         :src="String(passedItems.data?.program_badge.url)"
         :alt="String(passedItems.data?.program_badge.alt)"

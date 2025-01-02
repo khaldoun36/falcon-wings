@@ -2,14 +2,14 @@
   <section class="bg-primary-950 py-20 md:py-28 lg:py-32" id="contact">
     <Container
       tag="div"
-      class="grid items-start gap-8 lg:grid-cols-[1fr_1.25fr] lg:gap-16"
+      class="grid items-start gap-8 lg:grid-cols-[1fr_1fr] lg:gap-20"
     >
       <div class="lg:mt-1">
         <h3 class="text-xl text-neutral-100 md:text-2xl lg:text-3xl">
           {{ slice.primary.title }}
         </h3>
         <p
-          class="mt-4 text-pretty text-sm text-neutral-300/80 md:mt-5 md:text-base"
+          class="mt-4 text-balance text-sm text-neutral-300/80 md:mt-5 md:text-base"
         >
           {{ slice.primary.subtitle }}
         </p>

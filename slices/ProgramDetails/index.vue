@@ -8,10 +8,16 @@
         {{ slice.primary.section_title }}
       </h2>
       <div
-        class="mt-10 grid place-content-center gap-8 md:mt-12 md:grid-cols-2 md:grid-rows-1 lg:mt-16 lg:flex lg:items-stretch lg:justify-center"
+        class="mt-10 grid place-content-center gap-8 md:mt-12 md:grid-cols-2 md:grid-rows-1 lg:mt-16 lg:flex lg:items-stretch lg:justify-center lg:gap-16"
       >
         <ProgramCard
           v-for="programDetails in slice.primary.programs_details"
+          :passedItems="programDetails.a_single_program_details"
+          :key="String(programDetails.a_single_program_details.id)"
+          :isProgramActive="programDetails.is_program_active"
+        />
+        <ProgramCard
+          v-for="programDetails in slice.primary.programs_details.slice(-1)"
           :passedItems="programDetails.a_single_program_details"
           :key="String(programDetails.a_single_program_details.id)"
           :isProgramActive="programDetails.is_program_active"

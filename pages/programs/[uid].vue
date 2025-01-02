@@ -41,6 +41,7 @@
 
 <script setup>
 import Container from "~/components/base/Container.vue";
+
 import { usePrograms } from "~/composables/usePrograms";
 
 const { programDetails } = usePrograms();
